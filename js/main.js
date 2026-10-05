@@ -2,7 +2,6 @@
   const $ = (s, c = document) => c.querySelector(s);
   const $$ = (s, c = document) => [...c.querySelectorAll(s)];
   const root = document.documentElement;
-  const loader = $('.loader');
   const now = new Date();
 
   /* ---------- Dati dinamici ---------- */
@@ -40,14 +39,13 @@
   });
 
   /* ---------- Fallback senza animazioni ---------- */
-  if (loader) loader.style.animation = 'none';
+  root.classList.add('hero-ready');
 
   const hasGSAP = window.gsap && window.ScrollTrigger;
   const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   if (!hasGSAP || reduceMotion) {
     root.classList.add('no-motion');
-    if (loader) loader.remove();
     return;
   }
 
@@ -133,37 +131,15 @@
     return $$('.char', el);
   };
 
-  /* ---------- Intro / loader ---------- */
-  root.classList.add('is-loading');
-  if (lenis) lenis.stop();
-  if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
-  window.scrollTo(0, 0);
-
+  /* ---------- Intro ---------- */
   gsap.set('.hero .line__inner', { yPercent: 115 });
   gsap.set('[data-hero-fade]', { autoAlpha: 0, y: 24 });
   gsap.set('.hero__bg', { autoAlpha: 0, scale: 1.08 });
 
-  const countEl = $('.loader__count span');
-  const counter = { v: 0 };
-
   gsap.timeline({ defaults: { ease: 'expo.out' } })
-    .to(counter, {
-      v: 100,
-      duration: 1.6,
-      ease: 'power2.inOut',
-      onUpdate: () => { countEl.textContent = String(Math.round(counter.v)).padStart(3, '0'); },
-    })
-    .to('.loader__bar span', { scaleX: 1, duration: 1.6, ease: 'power2.inOut' }, 0)
-    .to('.loader', { yPercent: -100, duration: 1.1, ease: 'expo.inOut' }, '+=.1')
-    .to('.hero .line__inner', { yPercent: 0, duration: 1.5, stagger: 0.12 }, '-=.5')
+    .to('.hero .line__inner', { yPercent: 0, duration: 1.5, stagger: 0.12 })
     .to('.hero__bg', { autoAlpha: 1, scale: 1, duration: 2 }, '<')
-    .to('[data-hero-fade]', { autoAlpha: 1, y: 0, duration: 1.2, stagger: 0.08 }, '-=1.2')
-    .add(() => {
-      if (loader) loader.remove();
-      root.classList.remove('is-loading');
-      if (lenis) lenis.start();
-      ScrollTrigger.refresh();
-    }, '-=1');
+    .to('[data-hero-fade]', { autoAlpha: 1, y: 0, duration: 1.2, stagger: 0.08 }, '-=1.2');
 
   /* ---------- Progress + nav ---------- */
   gsap.to('.progress', {

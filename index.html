@@ -4,10 +4,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Pellegrino Durante — Backend Developer</title>
-  <meta name="description" content="Pellegrino Durante, Backend Developer. Sviluppo applicazioni e API con PHP, Laravel e Symfony dal 2018.">
+  <meta name="description" content="Pellegrino Durante, Backend Developer. Sviluppo applicazioni e API con PHP, Laravel e Symfony dal 2018, con la curiosità per frontend, mobile, AI e game dev.">
   <meta name="theme-color" content="#0a0a0a">
   <meta property="og:title" content="Pellegrino Durante — Backend Developer">
-  <meta property="og:description" content="Sviluppo applicazioni e API con PHP, Laravel e Symfony dal 2018.">
+  <meta property="og:description" content="Sviluppo applicazioni e API con PHP, Laravel e Symfony dal 2018, con la curiosità per frontend, mobile, AI e game dev.">
   <meta property="og:type" content="website">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230a0a0a'/%3E%3Ctext x='8' y='44' font-family='Arial,sans-serif' font-weight='700' font-size='30' fill='%23f7f7f5'%3EPD%3C/text%3E%3Crect x='50' y='38' width='6' height='6' fill='%23ffbb00'/%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,18 +17,6 @@
   <script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
-
-  <!-- Loader -->
-  <div class="loader" aria-hidden="true">
-    <div class="loader__top mono">
-      <span>Pellegrino Durante</span>
-      <span>Backend Developer</span>
-    </div>
-    <div class="loader__bottom">
-      <div class="loader__bar"><span></span></div>
-      <div class="loader__count"><span>000</span></div>
-    </div>
-  </div>
 
   <div class="cursor" aria-hidden="true"></div>
   <div class="progress" aria-hidden="true"></div>
@@ -59,11 +47,11 @@
       </h1>
 
       <div class="hero__meta">
-        <p class="hero__intro" data-hero-fade>
-          Sviluppatore back-end. Scrivo API e servizi in PHP, con Laravel e Symfony.
-        </p>
+        <a class="hero__handle mono" href="https://github.com/pellepino" target="_blank" rel="noopener" data-hero-fade>
+          <span class="hero__handle-at">@</span>pellepino<span class="hero__handle-arrow" aria-hidden="true">↗</span>
+        </a>
         <div class="hero__side" data-hero-fade>
-          <p class="hero__status mono"><span class="pulse"></span>Attualmente @ Jointly</p>
+          <p class="hero__status mono"><span class="pulse"></span>Attualmente @ Marsh Jointly</p>
           <a href="#about" class="hero__scroll mono">Scroll <span class="hero__scroll-line"></span></a>
         </div>
       </div>
@@ -77,6 +65,8 @@
           <span class="marquee__item">Laravel</span>
           <span class="marquee__item">Symfony</span>
           <span class="marquee__item">SQL</span>
+          <span class="marquee__item">JavaScript</span>
+          <span class="marquee__item">TypeScript</span>
           <span class="marquee__item">REST API</span>
           <span class="marquee__item">Microservizi</span>
         </div>
@@ -84,11 +74,12 @@
       <div class="marquee__row marquee__row--outline marquee__row--reverse">
         <div class="marquee__inner">
           <span class="marquee__item">Back-end</span>
-          <span class="marquee__item">JavaScript</span>
-          <span class="marquee__item">TypeScript</span>
-          <span class="marquee__item">LAMP</span>
-          <span class="marquee__item">Agile</span>
-          <span class="marquee__item">Videogiochi</span>
+          <span class="marquee__item">Frontend</span>
+          <span class="marquee__item">Mobile</span>
+          <span class="marquee__item">AI / LLM</span>
+          <span class="marquee__item">Game dev</span>
+          <span class="marquee__item">Architettura software</span>
+          <span class="marquee__item">Clean code</span>
           <span class="marquee__item">Gatti</span>
         </div>
       </div>
@@ -100,10 +91,21 @@
         <p class="label mono" data-reveal>(01) Chi sono</p>
         <div>
           <p class="about__text">
-            Ciao! Sono Pellegrino e dal 2018 scrivo codice lato server, soprattutto in PHP.
-            Mi piace costruire API semplici da usare e sistemi che funzionano bene anche
-            quando nessuno li guarda. Fuori dal codice? Videogiochi e gatti. Soprattutto gatti.
+            Ciao! Sono Pellegrino e sono un back-end developer dal 2018.
           </p>
+          <div class="about__body" data-reveal>
+            <p>
+              I miei OCD autodiagnosticati mi costringono a scrivere codice pulito, a seguire le best practices
+              e a fare le cose fatte bene.
+            </p>
+            <p>
+              Sono una persona molto curiosa: oltre a fare gossip con mia moglie Giada,
+              adoro capire come funzionano le cose sotto il cofano o imparare qualcosa di nuovo.
+              Questo mi ha portato a non limitarmi al back-end, facendomi approcciare anche al mondo frontend, mobile,
+              AI/LLM, sviluppo di videogiochi e architettura software.
+            </p>
+            <p class="about__outro">Odio le formalità e amo l'ironia<i class="dot">.</i></p>
+          </div>
         </div>
       </div>
 
@@ -120,7 +122,7 @@
         </div>
         <div class="stat" data-reveal>
           <span class="rule" aria-hidden="true"></span>
-          <p class="stat__num"><span data-count="17">17</span></p>
+          <p class="stat__num"><span data-count="18">18</span></p>
           <p class="stat__label mono">Repository pubblici</p>
         </div>
       </div>
@@ -141,6 +143,7 @@
             <div><dt class="mono">Framework</dt><dd>Laravel, Symfony</dd></div>
             <div><dt class="mono">Architetture</dt><dd>REST API, Microservizi, LAMP</dd></div>
             <div><dt class="mono">Metodo</dt><dd>Agile</dd></div>
+            <div><dt class="mono">Esplorando</dt><dd>Frontend, Mobile, AI/LLM, Game dev</dd></div>
           </dl>
         </aside>
 
@@ -154,7 +157,7 @@
             <span class="job__badge"><i></i>Ora</span>
           </div>
           <div class="job__body">
-            <h3 class="job__company job__reveal">Jointly</h3>
+            <h3 class="job__company job__reveal">Marsh Jointly</h3>
             <p class="job__role job__reveal">Backend Developer</p>
             <p class="job__type mono job__reveal">Tempo pieno · <span data-since="2025-01">1 anno 9 mesi</span></p>
             <p class="job__desc job__reveal">Sviluppo e manutenzione dei servizi back-end della piattaforma.</p>
@@ -248,7 +251,7 @@
 
       <ul class="projects__list">
         <li data-reveal>
-          <a class="project" href="https://github.com/PellegrinoDurante/project-marconi" target="_blank" rel="noopener">
+          <a class="project" href="https://github.com/pellepino/project-marconi" target="_blank" rel="noopener">
             <span class="project__num mono">01</span>
             <span class="project__name">project-marconi</span>
             <span class="project__desc">DNS e media server per trasmettere in streaming dalla console al computer.</span>
@@ -257,7 +260,7 @@
           </a>
         </li>
         <li data-reveal>
-          <a class="project" href="https://github.com/PellegrinoDurante/stream_proxy" target="_blank" rel="noopener">
+          <a class="project" href="https://github.com/pellepino/stream_proxy" target="_blank" rel="noopener">
             <span class="project__num mono">02</span>
             <span class="project__name">stream_proxy</span>
             <span class="project__desc">DNS e media server per portare lo stream di console e altre sorgenti su app come OBS.</span>
@@ -266,7 +269,7 @@
           </a>
         </li>
         <li data-reveal>
-          <a class="project" href="https://github.com/PellegrinoDurante/gm-export-local-package" target="_blank" rel="noopener">
+          <a class="project" href="https://github.com/pellepino/gm-export-local-package" target="_blank" rel="noopener">
             <span class="project__num mono">03</span>
             <span class="project__name">gm-export-local-package</span>
             <span class="project__desc">Tool da riga di comando per esportare local package dai progetti GameMaker Studio 2.</span>
@@ -275,7 +278,7 @@
           </a>
         </li>
         <li data-reveal>
-          <a class="project" href="https://github.com/PellegrinoDurante/symfony-activities-api" target="_blank" rel="noopener">
+          <a class="project" href="https://github.com/pellepino/symfony-activities-api" target="_blank" rel="noopener">
             <span class="project__num mono">04</span>
             <span class="project__name">symfony-activities-api</span>
             <span class="project__desc">Progetto del weekend: API per la gestione di attività costruita con Symfony.</span>
@@ -284,7 +287,7 @@
           </a>
         </li>
         <li data-reveal>
-          <a class="project" href="https://github.com/PellegrinoDurante/WheresMyMoney_backend" target="_blank" rel="noopener">
+          <a class="project" href="https://github.com/pellepino/WheresMyMoney_backend" target="_blank" rel="noopener">
             <span class="project__num mono">05</span>
             <span class="project__name">WheresMyMoney</span>
             <span class="project__desc">Progetto personale full-stack: backend in PHP e frontend in JavaScript.</span>
@@ -294,7 +297,7 @@
         </li>
       </ul>
 
-      <a class="projects__all mono" href="https://github.com/PellegrinoDurante" target="_blank" rel="noopener" data-reveal>Tutti i repository su GitHub ↗</a>
+      <a class="projects__all mono" href="https://github.com/pellepino" target="_blank" rel="noopener" data-reveal>Tutti i repository su GitHub ↗</a>
     </section>
 
     <!-- Contact -->
@@ -307,12 +310,12 @@
       </h2>
 
       <div class="contact__row">
-        <p class="contact__text" data-reveal>Per collaborazioni, opportunità o anche solo per parlare di back-end: scrivimi.</p>
+        <p class="contact__text" data-reveal>Per collaborazioni, opportunità o anche solo per fare due chiacchiere su codice, AI o videogiochi: scrivimi. Niente formalità.</p>
         <div class="contact__links" data-reveal>
           <a class="btn-round" href="https://www.linkedin.com/in/pellegrino-durante-14740313b/" target="_blank" rel="noopener" data-magnetic>
             <span>LinkedIn ↗</span>
           </a>
-          <a class="btn-round btn-round--ghost" href="https://github.com/PellegrinoDurante" target="_blank" rel="noopener" data-magnetic>
+          <a class="btn-round btn-round--ghost" href="https://github.com/pellepino" target="_blank" rel="noopener" data-magnetic>
             <span>GitHub ↗</span>
           </a>
         </div>
@@ -322,7 +325,7 @@
 
   <footer class="footer theme-dark">
     <p class="mono">© <span data-year>2026</span> Pellegrino Durante</p>
-    <p class="mono footer__mid">Backend Developer · Italia</p>
+    <p class="mono footer__mid">@pellepino · Backend Developer · Italia</p>
     <a href="#top" class="mono">Torna su ↑</a>
   </footer>
 
