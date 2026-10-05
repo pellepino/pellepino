@@ -39,11 +39,6 @@
     el.addEventListener('pointerleave', (e) => fillSide(el, e));
   });
 
-  /* ---------- Form contatti: per ora non invia nulla ---------- */
-  $$('.contact__form').forEach((form) => {
-    form.addEventListener('submit', (e) => e.preventDefault());
-  });
-
   /* ---------- Fallback senza animazioni ---------- */
   if (loader) loader.style.animation = 'none';
 

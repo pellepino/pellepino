@@ -550,7 +550,6 @@ img { display: block; max-width: 100%; }
   overflow: hidden;
   isolation: isolate;
 }
-button.btn-round { border: 0; cursor: pointer; }
 .btn-round::before {
   content: '';
   position: absolute;
@@ -567,36 +566,6 @@ button.btn-round { border: 0; cursor: pointer; }
 .btn-round--ghost { background: transparent; color: var(--black); border: 1px solid var(--black); }
 .btn-round--ghost::before { background: var(--black); }
 .btn-round--ghost:hover { color: var(--white); }
-
-.contact__form {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 2.5rem clamp(2rem, 4vw, 4rem);
-  margin-top: clamp(4rem, 8vw, 7rem);
-  padding-top: 2.5rem;
-  border-top: 1px solid var(--g-200);
-}
-.contact__form-label { grid-column: 1 / -1; margin-bottom: 0; }
-.field { display: flex; flex-direction: column; gap: .8rem; }
-.field--full { grid-column: 1 / -1; }
-.field__label { color: var(--g-500); transition: color .4s; }
-.field:focus-within .field__label { color: var(--black); }
-.field__input {
-  width: 100%;
-  padding: .4rem 0 .9rem;
-  border: 0;
-  border-bottom: 1px solid var(--g-300);
-  border-radius: 0;
-  background: transparent;
-  color: var(--black);
-  font: 500 clamp(1.3rem, 2.4vw, 2rem) / 1.2 var(--font-display);
-  letter-spacing: -.02em;
-  outline: none;
-  transition: border-color .4s;
-}
-.field__input:focus { border-bottom-color: var(--black); }
-.field__input--area { resize: vertical; min-height: 7rem; }
-.contact__form-actions { grid-column: 1 / -1; display: flex; justify-content: flex-end; }
 
 /* ---------- Footer ---------- */
 .footer {
@@ -634,8 +603,6 @@ button.btn-round { border: 0; cursor: pointer; }
   .edu-mini__item { grid-template-columns: 1fr; }
   .job__num { font-size: 6rem; }
   .contact__row { grid-template-columns: 1fr; }
-  .contact__form { grid-template-columns: 1fr; }
-  .contact__form-actions { justify-content: flex-start; }
   .footer__mid { display: none; }
 }
 
