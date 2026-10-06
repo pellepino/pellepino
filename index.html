@@ -9,7 +9,7 @@
   <meta property="og:title" content="Pellegrino Durante — Backend Developer">
   <meta property="og:description" content="Sviluppo applicazioni e API con PHP, Laravel e Symfony dal 2018, con la curiosità per frontend, mobile, AI e game dev.">
   <meta property="og:type" content="website">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230a0a0a'/%3E%3Ctext x='8' y='44' font-family='Arial,sans-serif' font-weight='700' font-size='30' fill='%23f7f7f5'%3EPD%3C/text%3E%3Crect x='50' y='38' width='6' height='6' fill='%23ffbb00'/%3E%3C/svg%3E">
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
@@ -24,7 +24,12 @@
 
   <!-- Nav -->
   <header class="nav">
-    <a href="#top" class="nav__logo" aria-label="Torna all'inizio">PD<i class="dot">.</i></a>
+    <a href="#top" class="nav__logo" aria-label="Torna all'inizio">
+      <svg viewBox="6 -8 124 125" aria-hidden="true">
+        <path fill="currentColor" fill-rule="evenodd" d="M6 117V-8H16.1L80.78 61H24V117ZM24 26.77L39.22 43H24ZM28 65H57.72L109.72 117H28ZM46 83H50.28L66.28 99H46Z"/>
+        <rect class="nav__logo-dot" x="116" y="103" width="14" height="14"/>
+      </svg>
+    </a>
     <nav class="nav__links mono" aria-label="Navigazione principale">
       <a href="#about" class="hide-sm">Chi sono</a>
       <a href="#experience" class="hide-sm">Esperienza</a>
@@ -37,7 +42,15 @@
     <!-- Hero -->
     <section class="hero theme-dark" id="top">
       <div class="hero__grid" aria-hidden="true"></div>
-      <div class="hero__bg" aria-hidden="true">&lt;?php</div>
+      <div class="hero__bg" aria-hidden="true">
+        <svg viewBox="6 -8 124 125">
+          <path d="M6 117V-8H16.1L80.78 61H24V117Z"/>
+          <path d="M24 26.77L39.22 43H24Z"/>
+          <path d="M28 65H57.72L109.72 117H28Z"/>
+          <path d="M46 83H50.28L66.28 99H46Z"/>
+          <path class="hero__bg-dot" d="M116 103H130V117H116Z"/>
+        </svg>
+      </div>
 
       <p class="hero__eyebrow mono" data-hero-fade>// Backend Developer — dal 2018</p>
 
@@ -91,7 +104,7 @@
         <p class="label mono" data-reveal>(01) Chi sono</p>
         <div>
           <p class="about__text">
-            Ciao! Sono Pellegrino e sono un back-end developer dal 2018.
+            Ciao! Sono Pellegrino e sono un <span class="hl">back-end developer</span> dal 2018.
           </p>
           <div class="about__body" data-reveal>
             <p>
@@ -99,31 +112,11 @@
               e a fare le cose fatte bene.
             </p>
             <p>
-              Sono una persona molto curiosa: oltre a fare gossip con mia moglie Giada,
+              Sono una persona molto curiosa: oltre a fare gossip con mia moglie <span class="giada">Giada<span class="giada__deco" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span></span>,
               adoro capire come funzionano le cose sotto il cofano o imparare qualcosa di nuovo.
-              Questo mi ha portato a non limitarmi al back-end, facendomi approcciare anche al mondo frontend, mobile,
-              AI/LLM, sviluppo di videogiochi e architettura software.
             </p>
-            <p class="about__outro">Odio le formalità e amo l'ironia<i class="dot">.</i></p>
+            <p>Odio le formalità e amo l'ironia<i class="dot">.</i></p>
           </div>
-        </div>
-      </div>
-
-      <div class="stats">
-        <div class="stat" data-reveal>
-          <span class="rule" aria-hidden="true"></span>
-          <p class="stat__num"><span data-count="8" data-years-since="2018-10">8</span>+</p>
-          <p class="stat__label mono">Anni di esperienza</p>
-        </div>
-        <div class="stat" data-reveal>
-          <span class="rule" aria-hidden="true"></span>
-          <p class="stat__num"><span data-count="5">5</span></p>
-          <p class="stat__label mono">Aziende</p>
-        </div>
-        <div class="stat" data-reveal>
-          <span class="rule" aria-hidden="true"></span>
-          <p class="stat__num"><span data-count="18">18</span></p>
-          <p class="stat__label mono">Repository pubblici</p>
         </div>
       </div>
     </section>

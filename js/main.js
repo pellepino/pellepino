@@ -22,12 +22,6 @@
     ].filter(Boolean).join(' ');
   });
 
-  $$('[data-years-since]').forEach((el) => {
-    const years = Math.floor(monthsSince(el.dataset.yearsSince) / 12);
-    el.dataset.count = years;
-    el.textContent = years;
-  });
-
   /* ---------- Progetti: il riempimento parte dal lato da cui entra/esce il mouse ---------- */
   const fillSide = (el, e) => {
     const r = el.getBoundingClientRect();
@@ -37,6 +31,16 @@
     el.addEventListener('pointerenter', (e) => fillSide(el, e));
     el.addEventListener('pointerleave', (e) => fillSide(el, e));
   });
+
+  /* ---------- Logo di sfondo: contorno sempre a 1px qualunque sia la dimensione ---------- */
+  const heroLogo = $('.hero__bg svg');
+  if (heroLogo) {
+    const fitStroke = () => {
+      if (heroLogo.clientWidth) heroLogo.style.setProperty('--stroke', heroLogo.viewBox.baseVal.width / heroLogo.clientWidth);
+    };
+    fitStroke();
+    window.addEventListener('resize', fitStroke);
+  }
 
   /* ---------- Fallback senza animazioni ---------- */
   root.classList.add('hero-ready');
@@ -135,11 +139,15 @@
   gsap.set('.hero .line__inner', { yPercent: 115 });
   gsap.set('[data-hero-fade]', { autoAlpha: 0, y: 24 });
   gsap.set('.hero__bg', { autoAlpha: 0, scale: 1.08 });
+  const pathLength = (i, el) => el.getTotalLength();
+  gsap.set('.hero__bg path', { strokeDasharray: pathLength, strokeDashoffset: pathLength });
 
   gsap.timeline({ defaults: { ease: 'expo.out' } })
     .to('.hero .line__inner', { yPercent: 0, duration: 1.5, stagger: 0.12 })
     .to('.hero__bg', { autoAlpha: 1, scale: 1, duration: 2 }, '<')
-    .to('[data-hero-fade]', { autoAlpha: 1, y: 0, duration: 1.2, stagger: 0.08 }, '-=1.2');
+    .to('[data-hero-fade]', { autoAlpha: 1, y: 0, duration: 1.2, stagger: 0.08 }, '-=1.2')
+    // Il logo si disegna tratto per tratto
+    .to('.hero__bg path', { strokeDashoffset: 0, duration: 1.8, ease: 'power2.inOut', stagger: 0.15 }, 0);
 
   /* ---------- Progress + nav ---------- */
   gsap.to('.progress', {
@@ -270,15 +278,6 @@
     }),
   });
 
-  $$('.rule').forEach((rule) => {
-    gsap.from(rule, {
-      scaleX: 0,
-      duration: 1.6,
-      ease: 'expo.inOut',
-      scrollTrigger: { trigger: rule.parentElement, start: 'top 88%' },
-    });
-  });
-
   /* ---------- About: parole che si "accendono" ---------- */
   const aboutText = $('.about__text');
   if (aboutText) {
@@ -289,20 +288,12 @@
       stagger: 0.1,
       scrollTrigger: { trigger: aboutText, start: 'top 80%', end: 'bottom 50%', scrub: true },
     });
-  }
-
-  $$('[data-count]').forEach((el) => {
-    const end = Number(el.dataset.count);
-    const obj = { v: 0 };
-    el.textContent = '0';
-    gsap.to(obj, {
-      v: end,
-      duration: 2.2,
-      ease: 'power3.out',
-      scrollTrigger: { trigger: el, start: 'top 90%', once: true },
-      onUpdate: () => { el.textContent = Math.round(obj.v); },
+    gsap.fromTo($$('.hl', aboutText), { '--hl': 0 }, {
+      '--hl': 1,
+      ease: 'none',
+      scrollTrigger: { trigger: aboutText, start: 'top 60%', end: 'bottom 45%', scrub: true },
     });
-  });
+  }
 
   /* ---------- Band ---------- */
   gsap.fromTo('.band__text', { xPercent: 0 }, {
