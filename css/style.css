@@ -542,6 +542,13 @@ img { display: block; max-width: 100%; }
   font-size: 1rem;
   transition: background-color .5s, color .5s, border-color .5s, transform .6s var(--ease-out);
 }
+/* Repo privato: nessun link, al posto della freccia un'etichetta */
+.term__tag {
+  padding: .45rem .8rem;
+  border: 1px dashed var(--g-700);
+  border-radius: 999px;
+  line-height: 1;
+}
 @keyframes termBlink {
   0%, 49% { opacity: 1; }
   50%, 100% { opacity: 0; }
@@ -549,7 +556,8 @@ img { display: block; max-width: 100%; }
 
 .term:focus-visible { outline: 1px solid var(--accent); outline-offset: 4px; }
 @media (hover: hover) {
-  .term:hover { transform: translateY(-.4rem); border-color: var(--g-500); }
+  a.term:hover { transform: translateY(-.4rem); }
+  .term:hover { border-color: var(--g-500); }
   .term:hover .term__prompt { color: var(--accent); }
   .term:hover .term__name::after { animation: termBlink 1.1s infinite; }
   .term:hover .term__arrow { background: var(--accent); color: var(--black); border-color: var(--accent); transform: rotate(45deg); }
