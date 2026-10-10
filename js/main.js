@@ -22,15 +22,17 @@
     ].filter(Boolean).join(' ');
   });
 
-  /* ---------- Progetti: il riempimento parte dal lato da cui entra/esce il mouse ---------- */
-  const fillSide = (el, e) => {
-    const r = el.getBoundingClientRect();
-    el.style.setProperty('--fill-from', e.clientY < r.top + r.height / 2 ? 'top' : 'bottom');
-  };
-  $$('.project').forEach((el) => {
-    el.addEventListener('pointerenter', (e) => fillSide(el, e));
-    el.addEventListener('pointerleave', (e) => fillSide(el, e));
-  });
+  /* ---------- Esperienza: colonna sticky solo se entra nello schermo ---------- */
+  const expAside = $('.exp__aside');
+  if (expAside) {
+    const fitAside = () => {
+      const top = parseFloat(getComputedStyle(root).fontSize) * 7;
+      expAside.classList.toggle('is-sticky', top + expAside.offsetHeight + 24 <= window.innerHeight);
+    };
+    fitAside();
+    document.fonts?.ready.then(fitAside);
+    window.addEventListener('resize', fitAside);
+  }
 
   /* ---------- Logo di sfondo: contorno sempre a 1px qualunque sia la dimensione ---------- */
   const heroLogo = $('.hero__bg svg');
@@ -173,8 +175,7 @@
     .to('.hero__line--2', { xPercent: 14, ease: 'none' }, 0)
     .to('.hero__bg', { yPercent: 45, rotate: -4, ease: 'none' }, 0)
     .to('.hero__grid', { yPercent: 20, opacity: 0.2, ease: 'none' }, 0)
-    .to('.hero__meta', { y: -60, autoAlpha: 0, ease: 'none' }, 0)
-    .to('.hero__eyebrow', { y: -40, autoAlpha: 0, ease: 'none' }, 0);
+    .to('.hero__meta', { y: -60, autoAlpha: 0, ease: 'none' }, 0);
 
   /* ---------- Esperienza: timeline verticale ---------- */
   gsap.to('.exp__line span', {
@@ -217,45 +218,6 @@
     scrollTrigger: { trigger: '.stack', start: 'top 85%' },
   });
 
-  /* ---------- Marquee reattivo alla velocità di scroll ---------- */
-  const marquees = $$('.marquee__row').map((row) => {
-    const inner = $('.marquee__inner', row);
-    inner.innerHTML += inner.innerHTML;
-    const reverse = row.classList.contains('marquee__row--reverse');
-    const tween = gsap.fromTo(
-      inner,
-      { xPercent: reverse ? -50 : 0 },
-      { xPercent: reverse ? 0 : -50, duration: 32, ease: 'none', repeat: -1 },
-    );
-    tween.totalTime(tween.duration() * 1000);
-    return tween;
-  });
-
-  let boost = 0;
-  let direction = 1;
-  ScrollTrigger.create({
-    start: 0,
-    end: 'max',
-    onUpdate: (self) => {
-      direction = self.direction;
-      boost = Math.min(Math.abs(self.getVelocity()) / 220, 9);
-    },
-  });
-  gsap.ticker.add(() => {
-    boost *= 0.93;
-    const ts = direction * (1 + boost);
-    marquees.forEach((t) => t.timeScale(ts));
-  });
-
-  gsap.to('.marquee__row:first-child', {
-    x: -80, ease: 'none',
-    scrollTrigger: { trigger: '.marquee', start: 'top bottom', end: 'bottom top', scrub: true },
-  });
-  gsap.to('.marquee__row--reverse', {
-    x: 80, ease: 'none',
-    scrollTrigger: { trigger: '.marquee', start: 'top bottom', end: 'bottom top', scrub: true },
-  });
-
   /* ---------- Titoli e reveal generici ---------- */
   $$('.reveal-title').forEach((title) => {
     gsap.from($$('.line__inner', title), {
@@ -294,13 +256,6 @@
       scrollTrigger: { trigger: aboutText, start: 'top 60%', end: 'bottom 45%', scrub: true },
     });
   }
-
-  /* ---------- Band ---------- */
-  gsap.fromTo('.band__text', { xPercent: 0 }, {
-    xPercent: -35,
-    ease: 'none',
-    scrollTrigger: { trigger: '.band', start: 'top bottom', end: 'bottom top', scrub: true },
-  });
 
   /* ---------- Contatti ---------- */
   $$('[data-chars]').forEach((el) => {

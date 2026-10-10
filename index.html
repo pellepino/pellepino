@@ -18,6 +18,12 @@
 </head>
 <body>
 
+  <svg width="0" height="0" style="position: absolute" aria-hidden="true">
+    <symbol id="i-arrow" viewBox="0 0 16 16">
+      <path d="M3.5 12.5 12.5 3.5M5 3.5h7.5V11" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" vector-effect="non-scaling-stroke"/>
+    </symbol>
+  </svg>
+
   <div class="cursor" aria-hidden="true"></div>
   <div class="progress" aria-hidden="true"></div>
   <div class="grain" aria-hidden="true"></div>
@@ -52,48 +58,19 @@
         </svg>
       </div>
 
-      <p class="hero__eyebrow mono" data-hero-fade>// Backend Developer — dal 2018</p>
-
       <h1 class="hero__title">
         <span class="line hero__line hero__line--1"><span class="line__inner">Pellegrino</span></span>
         <span class="line hero__line hero__line--2"><span class="line__inner">Durante<i class="dot">.</i></span></span>
       </h1>
 
       <div class="hero__meta">
-        <a class="hero__handle mono" href="https://github.com/pellepino" target="_blank" rel="noopener" data-hero-fade>
-          <span class="hero__handle-at">@</span>pellepino<span class="hero__handle-arrow" aria-hidden="true">↗</span>
+        <a class="hero__handle mono" href="https://github.com/pellepino" target="_blank" rel="noopener" aria-label="Profilo GitHub: @pellepino" data-hero-fade>
+          <span class="hero__handle-label">// GitHub</span>
+          <span class="hero__handle-at">@</span>pellepino<span class="hero__handle-arrow"><svg class="icon-arrow" aria-hidden="true"><use href="#i-arrow"/></svg></span>
         </a>
         <div class="hero__side" data-hero-fade>
-          <p class="hero__status mono"><span class="pulse"></span>Attualmente @ Marsh Jointly</p>
+          <p class="hero__status mono"><span class="pulse"></span>Backend developer @ Marsh Jointly</p>
           <a href="#about" class="hero__scroll mono">Scroll <span class="hero__scroll-line"></span></a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Marquee -->
-    <section class="marquee" aria-label="Competenze">
-      <div class="marquee__row">
-        <div class="marquee__inner">
-          <span class="marquee__item">PHP</span>
-          <span class="marquee__item">Laravel</span>
-          <span class="marquee__item">Symfony</span>
-          <span class="marquee__item">SQL</span>
-          <span class="marquee__item">JavaScript</span>
-          <span class="marquee__item">TypeScript</span>
-          <span class="marquee__item">REST API</span>
-          <span class="marquee__item">Microservizi</span>
-        </div>
-      </div>
-      <div class="marquee__row marquee__row--outline marquee__row--reverse">
-        <div class="marquee__inner">
-          <span class="marquee__item">Back-end</span>
-          <span class="marquee__item">Frontend</span>
-          <span class="marquee__item">Mobile</span>
-          <span class="marquee__item">AI / LLM</span>
-          <span class="marquee__item">Game dev</span>
-          <span class="marquee__item">Architettura software</span>
-          <span class="marquee__item">Clean code</span>
-          <span class="marquee__item">Gatti</span>
         </div>
       </div>
     </section>
@@ -115,7 +92,7 @@
               Sono una persona molto curiosa: oltre a fare gossip con mia moglie <span class="giada">Giada<span class="giada__deco" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span></span>,
               adoro capire come funzionano le cose sotto il cofano o imparare qualcosa di nuovo.
             </p>
-            <p>Odio le formalità e amo l'ironia<i class="dot">.</i></p>
+            <p>Odio le formalità e amo l'ironia. E i gatti<i class="dot">.</i></p>
           </div>
         </div>
       </div>
@@ -132,11 +109,11 @@
           </h2>
           <p class="label mono exp__stack-label">Stack</p>
           <dl class="stack">
-            <div><dt class="mono">Linguaggi</dt><dd>PHP, SQL, JavaScript, TypeScript</dd></div>
-            <div><dt class="mono">Framework</dt><dd>Laravel, Symfony</dd></div>
-            <div><dt class="mono">Architetture</dt><dd>REST API, Microservizi, LAMP</dd></div>
-            <div><dt class="mono">Metodo</dt><dd>Agile</dd></div>
-            <div><dt class="mono">Esplorando</dt><dd>Frontend, Mobile, AI/LLM, Game dev</dd></div>
+            <div><dt class="mono">Backend</dt><dd>PHP, Laravel, Symfony, Node.js, REST&nbsp;API, Microservizi, Test&nbsp;automatici</dd></div>
+            <div><dt class="mono">Dati</dt><dd>SQL, MySQL, Redis, RabbitMQ</dd></div>
+            <div><dt class="mono">Infra e tool</dt><dd>Docker, Kubernetes, AWS, GitHub&nbsp;Actions, Git</dd></div>
+            <div><dt class="mono">Frontend e mobile</dt><dd>HTML, CSS, JavaScript, TypeScript, React, Vue, Flutter</dd></div>
+            <div><dt class="mono">Esplorando</dt><dd>AI/LLM, Game&nbsp;dev</dd></div>
           </dl>
         </aside>
 
@@ -227,70 +204,78 @@
       </div>
     </section>
 
-    <!-- Band -->
-    <div class="band theme-dark" aria-hidden="true">
-      <p class="band__text">API solide — Codice pulito — Performance — Microservizi — API solide — Codice pulito —</p>
-    </div>
-
     <!-- Projects -->
     <section class="section projects theme-dark" id="projects">
       <div class="projects__head">
-        <p class="label mono" data-reveal>(03) Side projects</p>
+        <p class="label mono" data-reveal>(03) Progetti</p>
         <h2 class="section-title reveal-title">
-          <span class="line"><span class="line__inner">Fuori</span></span>
-          <span class="line"><span class="line__inner">orario<i class="dot">.</i></span></span>
+          <span class="line"><span class="line__inner">Side</span></span>
+          <span class="line"><span class="line__inner">projects<i class="dot">.</i></span></span>
         </h2>
       </div>
 
-      <ul class="projects__list">
+      <ul class="projects__grid">
         <li data-reveal>
-          <a class="project" href="https://github.com/pellepino/project-marconi" target="_blank" rel="noopener">
-            <span class="project__num mono">01</span>
-            <span class="project__name">project-marconi</span>
-            <span class="project__desc">DNS e media server per trasmettere in streaming dalla console al computer.</span>
-            <span class="project__lang mono">JavaScript</span>
-            <span class="project__arrow" aria-hidden="true">↗</span>
+          <a class="term" href="https://github.com/pellepino/project-marconi" target="_blank" rel="noopener">
+            <span class="term__bar" aria-hidden="true"><span class="term__dots"><i></i><i></i><i></i></span>project-marconi</span>
+            <span class="term__body">
+              <span class="term__cmd"><span class="term__prompt" aria-hidden="true">$</span>git clone pellepino/<span class="term__name">project-marconi</span></span>
+              <span class="term__desc">DNS e media server per trasmettere in streaming dalla console al computer.</span>
+            </span>
+            <span class="term__foot"><span class="term__lang">JavaScript</span><span class="term__arrow"><svg class="icon-arrow" aria-hidden="true"><use href="#i-arrow"/></svg></span></span>
           </a>
         </li>
         <li data-reveal>
-          <a class="project" href="https://github.com/pellepino/stream_proxy" target="_blank" rel="noopener">
-            <span class="project__num mono">02</span>
-            <span class="project__name">stream_proxy</span>
-            <span class="project__desc">DNS e media server per portare lo stream di console e altre sorgenti su app come OBS.</span>
-            <span class="project__lang mono">JavaScript</span>
-            <span class="project__arrow" aria-hidden="true">↗</span>
+          <a class="term" href="https://github.com/pellepino/stream_proxy" target="_blank" rel="noopener">
+            <span class="term__bar" aria-hidden="true"><span class="term__dots"><i></i><i></i><i></i></span>stream_proxy</span>
+            <span class="term__body">
+              <span class="term__cmd"><span class="term__prompt" aria-hidden="true">$</span>git clone pellepino/<span class="term__name">stream_proxy</span></span>
+              <span class="term__desc">DNS e media server per portare lo stream di console e altre sorgenti su app come OBS.</span>
+            </span>
+            <span class="term__foot"><span class="term__lang">JavaScript</span><span class="term__arrow"><svg class="icon-arrow" aria-hidden="true"><use href="#i-arrow"/></svg></span></span>
           </a>
         </li>
         <li data-reveal>
-          <a class="project" href="https://github.com/pellepino/gm-export-local-package" target="_blank" rel="noopener">
-            <span class="project__num mono">03</span>
-            <span class="project__name">gm-export-local-package</span>
-            <span class="project__desc">Tool da riga di comando per esportare local package dai progetti GameMaker Studio 2.</span>
-            <span class="project__lang mono">JavaScript</span>
-            <span class="project__arrow" aria-hidden="true">↗</span>
+          <a class="term" href="https://github.com/pellepino/gm-export-local-package" target="_blank" rel="noopener">
+            <span class="term__bar" aria-hidden="true"><span class="term__dots"><i></i><i></i><i></i></span>gm-export-local-package</span>
+            <span class="term__body">
+              <span class="term__cmd"><span class="term__prompt" aria-hidden="true">$</span>git clone pellepino/<span class="term__name">gm-export-local-package</span></span>
+              <span class="term__desc">Tool da riga di comando per esportare local package dai progetti GameMaker Studio 2.</span>
+            </span>
+            <span class="term__foot"><span class="term__lang">JavaScript</span><span class="term__arrow"><svg class="icon-arrow" aria-hidden="true"><use href="#i-arrow"/></svg></span></span>
           </a>
         </li>
         <li data-reveal>
-          <a class="project" href="https://github.com/pellepino/symfony-activities-api" target="_blank" rel="noopener">
-            <span class="project__num mono">04</span>
-            <span class="project__name">symfony-activities-api</span>
-            <span class="project__desc">Progetto del weekend: API per la gestione di attività costruita con Symfony.</span>
-            <span class="project__lang mono">PHP</span>
-            <span class="project__arrow" aria-hidden="true">↗</span>
+          <a class="term" href="https://github.com/pellepino/symfony-activities-api" target="_blank" rel="noopener">
+            <span class="term__bar" aria-hidden="true"><span class="term__dots"><i></i><i></i><i></i></span>symfony-activities-api</span>
+            <span class="term__body">
+              <span class="term__cmd"><span class="term__prompt" aria-hidden="true">$</span>git clone pellepino/<span class="term__name">symfony-activities-api</span></span>
+              <span class="term__desc">Progetto del weekend: API per la gestione di attività costruita con Symfony.</span>
+            </span>
+            <span class="term__foot"><span class="term__lang">PHP</span><span class="term__arrow"><svg class="icon-arrow" aria-hidden="true"><use href="#i-arrow"/></svg></span></span>
           </a>
         </li>
         <li data-reveal>
-          <a class="project" href="https://github.com/pellepino/WheresMyMoney_backend" target="_blank" rel="noopener">
-            <span class="project__num mono">05</span>
-            <span class="project__name">WheresMyMoney</span>
-            <span class="project__desc">Progetto personale full-stack: backend in PHP e frontend in JavaScript.</span>
-            <span class="project__lang mono">PHP · JS</span>
-            <span class="project__arrow" aria-hidden="true">↗</span>
+          <a class="term" href="https://github.com/pellepino/WheresMyMoney_backend" target="_blank" rel="noopener">
+            <span class="term__bar" aria-hidden="true"><span class="term__dots"><i></i><i></i><i></i></span>WheresMyMoney</span>
+            <span class="term__body">
+              <span class="term__cmd"><span class="term__prompt" aria-hidden="true">$</span>git clone pellepino/<span class="term__name">WheresMyMoney_backend</span></span>
+              <span class="term__desc">Progetto personale full-stack: backend in PHP e frontend in JavaScript.</span>
+            </span>
+            <span class="term__foot"><span class="term__lang">PHP · JS</span><span class="term__arrow"><svg class="icon-arrow" aria-hidden="true"><use href="#i-arrow"/></svg></span></span>
+          </a>
+        </li>
+        <li data-reveal>
+          <a class="term term--ghost" href="https://github.com/pellepino" target="_blank" rel="noopener">
+            <span class="term__bar" aria-hidden="true"><span class="term__dots"><i></i><i></i><i></i></span>github.com</span>
+            <span class="term__body">
+              <span class="term__cmd"><span class="term__prompt" aria-hidden="true">$</span>open github.com/<span class="term__name">pellepino</span></span>
+              <span class="term__desc">Tutti gli altri repository su GitHub.</span>
+            </span>
+            <span class="term__foot"><span class="term__lang">GitHub</span><span class="term__arrow"><svg class="icon-arrow" aria-hidden="true"><use href="#i-arrow"/></svg></span></span>
           </a>
         </li>
       </ul>
-
-      <a class="projects__all mono" href="https://github.com/pellepino" target="_blank" rel="noopener" data-reveal>Tutti i repository su GitHub ↗</a>
     </section>
 
     <!-- Contact -->
@@ -306,10 +291,10 @@
         <p class="contact__text" data-reveal>Per collaborazioni, opportunità o anche solo per fare due chiacchiere su codice, AI o videogiochi: scrivimi. Niente formalità.</p>
         <div class="contact__links" data-reveal>
           <a class="btn-round" href="https://www.linkedin.com/in/pellegrino-durante-14740313b/" target="_blank" rel="noopener" data-magnetic>
-            <span>LinkedIn ↗</span>
+            <span>LinkedIn <svg class="icon-arrow" aria-hidden="true"><use href="#i-arrow"/></svg></span>
           </a>
           <a class="btn-round btn-round--ghost" href="https://github.com/pellepino" target="_blank" rel="noopener" data-magnetic>
-            <span>GitHub ↗</span>
+            <span>GitHub <svg class="icon-arrow" aria-hidden="true"><use href="#i-arrow"/></svg></span>
           </a>
         </div>
       </div>
