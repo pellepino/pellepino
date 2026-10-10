@@ -399,7 +399,9 @@ img { display: block; max-width: 100%; }
   transition: -webkit-text-stroke-color .6s;
 }
 .job:hover .job__num { -webkit-text-stroke-color: var(--g-500); }
-.job__meta { position: relative; display: flex; justify-content: space-between; gap: 1rem; margin-bottom: 1.5rem; color: var(--g-400); }
+.job__meta { position: relative; display: flex; flex-wrap: wrap; justify-content: space-between; gap: .4rem 1rem; margin-bottom: 1.5rem; color: var(--g-400); }
+.job__dur { color: var(--g-500); }
+.job__where { display: inline-flex; align-items: center; gap: 1rem; }
 .job__badge { display: inline-flex; align-items: center; gap: .5rem; color: var(--white); }
 .job__badge i { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); }
 .job__body { position: relative; }
@@ -410,7 +412,6 @@ img { display: block; max-width: 100%; }
   letter-spacing: -.045em;
 }
 .job__role { font-size: 1.2rem; margin-top: .8rem; }
-.job__type { color: var(--g-500); margin-top: .5rem; }
 .job__desc { color: var(--g-300); margin-top: 1.4rem; max-width: 46ch; line-height: 1.55; }
 
 .tags { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1.4rem; }
