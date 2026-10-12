@@ -22,12 +22,12 @@
     ].filter(Boolean).join(' ');
   });
 
-  /* ---------- Esperienza: colonna sticky solo se entra nello schermo ---------- */
+  /* ---------- Esperienza: colonna sticky, ancorata in basso se non entra nello schermo ---------- */
   const expAside = $('.exp__aside');
   if (expAside) {
     const fitAside = () => {
       const top = parseFloat(getComputedStyle(root).fontSize) * 7;
-      expAside.classList.toggle('is-sticky', top + expAside.offsetHeight + 24 <= window.innerHeight);
+      expAside.style.setProperty('--aside-top', `${Math.min(top, window.innerHeight - expAside.offsetHeight - 24)}px`);
     };
     fitAside();
     document.fonts?.ready.then(fitAside);
