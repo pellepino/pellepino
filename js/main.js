@@ -45,7 +45,7 @@
   }
 
   /* ---------- Form contatti: invio ad Apps Script con token Turnstile ---------- */
-  const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyANZEqWovbq-eSH3ABnUPVkysjC5f61UZoxchOAlOxIXZnmK5d4PDBFtuc2g02SXzR/exec';
+  const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwMyrV4y4pS0w_flMQ65qVYZ_qB7ITWmxbT6ccHpCdmLc6iBhykZAkXUuoxkrycFa7v/exec';
   const contactForm = $('.contact__form');
   if (contactForm) {
     const submitBtn = $('.contact__submit', contactForm);
