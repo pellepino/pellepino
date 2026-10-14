@@ -12,9 +12,11 @@
   <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://challenges.cloudflare.com">
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
   <script>document.documentElement.classList.add('js');</script>
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
 <body>
 
@@ -267,14 +269,14 @@
               <span class="term__cmd"><span class="term__prompt" aria-hidden="true">$</span>git clone pellepino/<span class="term__name">project-marconi</span></span>
               <span class="term__desc">DNS e media server per trasmettere in streaming dalla console al computer.</span>
             </span>
-            <span class="term__foot"><span class="term__lang">JavaScript</span><span class="term__arrow"><svg class="icon-arrow" aria-hidden="true"><use href="#i-arrow"/></svg></span></span>
+            <span class="term__foot"><span class="term__lang">JavaScript</span><span class="term__open"><span class="term__open-label">Apri</span><svg class="icon-arrow" aria-hidden="true"><use href="#i-arrow"/></svg></span></span>
           </a>
         </li>
       </ul>
 
       <a class="projects__more mono" href="https://github.com/pellepino" target="_blank" rel="noopener" data-reveal>
         <span class="projects__more-cmd"><span class="projects__more-prompt" aria-hidden="true">$</span>open github.com/pellepino<span class="projects__more-cursor" aria-hidden="true"></span></span>
-        <span class="projects__more-side"><span class="projects__more-hint"># tutti gli altri repository</span><span class="term__arrow"><svg class="icon-arrow" aria-hidden="true"><use href="#i-arrow"/></svg></span></span>
+        <span class="projects__more-side"><span class="projects__more-hint"># tutti gli altri repository</span><span class="term__open"><span class="term__open-label">Apri</span><svg class="icon-arrow" aria-hidden="true"><use href="#i-arrow"/></svg></span></span>
       </a>
     </section>
 
@@ -288,15 +290,37 @@
       </h2>
 
       <div class="contact__row">
-        <p class="contact__text" data-reveal>Per collaborazioni, opportunità o per fare due chiacchiere: scrivimi!</p>
-        <div class="contact__links" data-reveal>
-          <a class="btn" href="https://www.linkedin.com/in/pellegrino-durante-14740313b/" target="_blank" rel="noopener" data-magnetic>
-            <span>LinkedIn</span><svg class="icon-arrow" aria-hidden="true"><use href="#i-arrow"/></svg>
-          </a>
-          <a class="btn btn--ghost" href="https://github.com/pellepino" target="_blank" rel="noopener" data-magnetic>
-            <span>GitHub</span><svg class="icon-arrow" aria-hidden="true"><use href="#i-arrow"/></svg>
-          </a>
+        <div class="contact__side">
+          <p class="contact__text" data-reveal>Per collaborazioni, opportunità o per fare due chiacchiere: scrivimi!</p>
+          <div class="contact__links" data-reveal>
+            <a class="btn" href="https://www.linkedin.com/in/pellegrino-durante-14740313b/" target="_blank" rel="noopener" data-magnetic>
+              <span class="btn__label">LinkedIn</span><svg class="icon-arrow" aria-hidden="true"><use href="#i-arrow"/></svg>
+            </a>
+            <a class="btn btn--ghost" href="https://github.com/pellepino" target="_blank" rel="noopener" data-magnetic>
+              <span class="btn__label">GitHub</span><svg class="icon-arrow" aria-hidden="true"><use href="#i-arrow"/></svg>
+            </a>
+          </div>
         </div>
+
+        <form class="contact__form" data-reveal>
+          <div class="field">
+            <label class="field__label mono" for="cf-name">Nome</label>
+            <input class="field__input" id="cf-name" name="name" type="text" autocomplete="name" required>
+          </div>
+          <div class="field">
+            <label class="field__label mono" for="cf-email">Email</label>
+            <input class="field__input" id="cf-email" name="email" type="email" autocomplete="email" required>
+          </div>
+          <div class="field">
+            <label class="field__label mono" for="cf-message">Messaggio</label>
+            <textarea class="field__input field__input--area" id="cf-message" name="message" rows="4" required></textarea>
+          </div>
+          <div class="cf-turnstile" data-sitekey="0x4AAAAAAFWZBlIXX06QzF3t"></div>
+          <button class="btn contact__submit" type="submit">
+            <span class="btn__label">Invia messaggio</span><svg class="icon-arrow" aria-hidden="true"><use href="#i-arrow"/></svg>
+          </button>
+          <p class="contact__status mono" role="status" aria-live="polite"></p>
+        </form>
       </div>
     </section>
   </main>

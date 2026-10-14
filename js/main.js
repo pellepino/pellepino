@@ -44,6 +44,43 @@
     window.addEventListener('resize', fitStroke);
   }
 
+  /* ---------- Form contatti: invio ad Apps Script con token Turnstile ---------- */
+  const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyANZEqWovbq-eSH3ABnUPVkysjC5f61UZoxchOAlOxIXZnmK5d4PDBFtuc2g02SXzR/exec';
+  const contactForm = $('.contact__form');
+  if (contactForm) {
+    const submitBtn = $('.contact__submit', contactForm);
+    const status = $('.contact__status', contactForm);
+    const setStatus = (text, state = '') => {
+      status.textContent = text;
+      status.dataset.state = state;
+    };
+
+    contactForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      // Turnstile aggiunge da solo il campo cf-turnstile-response al form
+      const campi = Object.fromEntries(new FormData(contactForm));
+      if (!campi['cf-turnstile-response']) return setStatus('Completa la verifica prima di inviare.', 'error');
+
+      submitBtn.disabled = true;
+      setStatus('Invio in corso…');
+      try {
+        const res = await fetch(APPS_SCRIPT_URL, {
+          method: 'POST',
+          body: JSON.stringify(campi), // niente headers: deve partire come text/plain (CORS)
+        });
+        const data = await res.json();
+        if (!data.ok) throw new Error(data.error);
+        contactForm.reset();
+        setStatus('Messaggio inviato, ti rispondo presto.', 'ok');
+      } catch {
+        setStatus('Invio non riuscito, riprova o scrivimi su LinkedIn.', 'error');
+      } finally {
+        window.turnstile?.reset(); // il token vale per un solo invio
+        submitBtn.disabled = false;
+      }
+    });
+  }
+
   /* ---------- Fallback senza animazioni ---------- */
   root.classList.add('hero-ready');
 
@@ -97,7 +134,9 @@
           });
           n.replaceWith(frag);
         } else if (n.nodeType === 1) {
-          walk(n);
+          // Il punto giallo è disegnato sull'elemento stesso: si anima come una parola intera
+          if (n.classList.contains('dot')) n.classList.add('w');
+          else walk(n);
         }
       });
     };
